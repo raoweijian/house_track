@@ -4,8 +4,9 @@ import { Button } from 'antd';
 import Add from './Add';
 import './app.css';
 
-import { Table, Tag, Space } from 'antd';
+import { Layout, Menu, Breadcrumb, Table, Tag, Space } from 'antd';
 
+const { Header, Content, Footer } = Layout;
 
 const columns = [
   {
@@ -85,8 +86,21 @@ class HelloWorld extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <Add/>
-        <Table columns={columns} dataSource={data} />
+        <Layout className="layout">
+          <Header>
+            <div className="logo" />
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+              <Menu.Item key="1">nav 1</Menu.Item>
+              <Menu.Item key="2">nav 2</Menu.Item>
+              <Menu.Item key="3">nav 3</Menu.Item>
+            </Menu>
+          </Header>
+
+          <Add />
+          <Table columns={columns} dataSource={data} />
+
+          <Footer style={{ textAlign: 'center' }}>raoweijian</Footer>
+        </Layout>
       </React.Fragment>
     );
   }
@@ -95,4 +109,5 @@ class HelloWorld extends React.Component {
 HelloWorld.propTypes = {
   greeting: PropTypes.string
 };
+
 export default HelloWorld
